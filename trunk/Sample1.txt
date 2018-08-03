@@ -3,9 +3,9 @@ Hello World!
 Master Change1
 Master Change2
 Master Change3
-Issue1 ChangeText1
-Issue1 ChangeText2
-Issue1 ChangeText3
+PullRequest ChangeText1
+PullRequest ChangeText2
+PullRequest ChangeText3
 Issue2 TextAdd1
 Issue2 TextAdd1
 Issue2 TextAdd2
