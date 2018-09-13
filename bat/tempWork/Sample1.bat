@@ -1,15 +1,21 @@
 @echo off
+echo -------------------------------------------------------------------------------
+echo [%~nx0] %DATE% %TIME% Start
+echo -------------------------------------------------------------------------------
+
 setlocal enabledelayedexpansion
 REM --------------------------------------------------
 SET LHAPLUS="C:\Program Files\Lhaplus\Lhaplus.exe"
 SET TEMP_FOLDER="C:\TempFolder"
 
-SET VERSION_JP_COUNTER=2030
-SET VERSION_JP_SELF=20230
-SET VERSION_EN_COUNTER=20430
-SET VERSION_EN_SELF=20630
-SET VERSION_EN_SEMISELF=20630
+SET VERSION_MAJOR=20
+SET VERSION_MINOR=30
 
+SET VERSION_JP_COUNTER=%VERSION_MAJOR%%VERSION_MINOR%
+SET VERSION_JP_SELF=%VERSION_MAJOR%2%VERSION_MINOR%
+SET VERSION_EN_COUNTER=%VERSION_MAJOR%4%VERSION_MINOR%
+SET VERSION_EN_SELF=%VERSION_MAJOR%6%VERSION_MINOR%
+SET VERSION_EN_SEMISELF=%VERSION_MAJOR%6%VERSION_MINOR%
 
 pushd %~dp0
     if exist %TEMP_FOLDER% (
@@ -120,7 +126,7 @@ pushd %~dp0
         popd
 
         REM 海外セミセルフ機
-        pushd "Global_Self\Download"
+        pushd "Global_Semiself\Download"
             REM SPK_SYSTEMフォルダにはAppFilesフォルダがないため削除
             if exist SPK_SYSTEM (rd /s /q SPK_SYSTEM)
 
@@ -139,6 +145,10 @@ pushd %~dp0
     rd /s /q %TEMP_FOLDER%
 popd
 
+echo -------------------------------------------------------------------------------
+echo [%~nx0] %DATE% %TIME% END
+echo -------------------------------------------------------------------------------
+pause
 exit /b
 REM --------------------------------------------------
 
